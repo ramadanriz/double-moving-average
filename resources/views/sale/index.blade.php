@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Data Pendapatan') }}
+                {{ __('Data Penjualan') }}
             </h2>
             <a href="/sale/create" class="py-2 px-3 rounded-lg text-white bg-indigo-500 shadow-lg hover:bg-indigo-700">Add New Data</a>
         </div>
@@ -15,16 +15,14 @@
                 <table class="w-full text-sm text-left text-gray-700">
                     <thead class="text-xs uppercase bg-gray-50">
                         <tr class="text-center">
-                            <th scope="col" class="px-6 py-3">No</th>
                             <th scope="col" class="px-6 py-3">Minggu ke</th>
                             <th scope="col" class="px-6 py-3">Penjualan</th>
                             <th scope="col" class="px-6 py-3">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sales as $index => $sale)
+                        @foreach ($sales as $sale)
                         <tr class="bg-white border-b hover:bg-gray-50 text-center">
-                        <td class="px-6 py-4">{{ $sales->firstItem() + $index  }}</td>
                         <td class="px-6 py-4">{{ $sale->week }}</td>
                         <td class="px-6 py-4">{{ $sale->sale }}</td>
                         <td class="px-6 py-4 flex justify-around">

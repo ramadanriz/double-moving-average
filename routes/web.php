@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ForecastingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('sale', SaleController::class);
+    Route::get('/forecasting', [ForecastingController::class, 'index'])->name('forecasting');
+    Route::post('/forecasting', [ForecastingController::class, 'index'])->name('forecasting');
 });
 
 require __DIR__.'/auth.php';
