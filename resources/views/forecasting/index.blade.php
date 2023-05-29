@@ -41,7 +41,7 @@
       <h2 class="text-xl font-semibold leading-tight capitalize">
         {{ __('Peramalan') }} Menggunakan {{ $_POST['periode'] }} Periode
       </h2>
-
+{{-- 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 w-full">
         <div class="flex items-center p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md">
           <div>
@@ -49,12 +49,12 @@
             <p class="text-sm text-gray-600">Prediksi Minggu ke-{{ $nextPeriod }}</p>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <div class="grid gap-2">
-        <h2 class="text-xl font-semibold leading-tight capitalize">
+        {{-- <h2 class="text-xl font-semibold leading-tight capitalize">
           {{ __('tabel hasil forecasting') }}
-        </h2>
+        </h2> --}}
         <div class="overflow-x-auto shadow-md sm:rounded-lg">
           <table class="w-full text-sm text-center">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -63,6 +63,9 @@
                       <th scope="col" class="px-6 py-3">Data Aktual</th>
                       <th scope="col" class="px-6 py-3">Single Moving Average</th>
                       <th scope="col" class="px-6 py-3">Double Moving Average</th>
+                      <th scope="col" class="px-6 py-3">At</th>
+                      <th scope="col" class="px-6 py-3">bt</th>
+                      <th scope="col" class="px-6 py-3">ft</th>
                   </tr>
               </thead>
               <tbody>
@@ -71,6 +74,10 @@
                   <td class="px-6 py-4">{{ $hasil['data'][$i][0] }}</td>
                   <td class="px-6 py-4">{{ $hasil['data'][$i][1] }}</td>
                   <td class="px-6 py-4">{{ $hasil['MA'][$i] }}</td>
+                  <td class="px-6 py-4">{{ $hasil['DMA'][$i] }}</td>
+                  <td class="px-6 py-4">{{ $hasil['AT'][$i] }}</td>
+                  <td class="px-6 py-4">{{ $hasil['BT'][$i] }}</td>
+                  <td class="px-6 py-4">{{ $hasil['FT'][$i] }}</td>
               </tr>
               @endfor
               </tbody>
