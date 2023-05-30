@@ -34,4 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/forecasting', [ForecastingController::class, 'index'])->name('forecasting');
 });
 
+Route::middleware('admin')->group(function () {
+    Route::get('/forecasting', [ForecastingController::class, 'index'])->name('forecasting');
+    Route::post('/forecasting', [ForecastingController::class, 'index'])->name('forecasting');
+});
+
 require __DIR__.'/auth.php';

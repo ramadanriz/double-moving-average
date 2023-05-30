@@ -18,11 +18,11 @@
                     <x-nav-link href="/sale" :active="request()->routeIs('sale*')">
                         {{ __('Penjualan') }}
                     </x-nav-link>
-                    
+                    @can('admin')
                     <x-nav-link href="/forecasting" :active="request()->routeIs('forecasting')">
                         {{ __('Peramalan') }}
                     </x-nav-link>
-                    
+                    @endcan                    
                 </div>
             </div>
 
