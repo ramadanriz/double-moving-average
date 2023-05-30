@@ -79,7 +79,7 @@ class ForecastingController extends Controller
         //     $MA[$i] = round(array_sum(array_slice($data, $i - $ma + 1, $ma)) / ($ma-2));
         // }
         $MA = array_fill(0, $index + 1, NULL);
-        for ($i = $ma + 1; $i < $index; $i++) { 
+        for ($i = ($ma*2)-2; $i < $index; $i++) { 
             $MA[$i] = array_sum(array_slice($data, $i - $ma + 1, $ma)) / $ma;
         }
 
@@ -95,7 +95,7 @@ class ForecastingController extends Controller
         // }
         $index = count($data2)-1;
         $AT = array_fill(0, $index + 1, NULL);
-        for ($i = $ma + 1; $i < $index; $i++) { 
+        for ($i = ($ma*2)-2; $i < $index; $i++) { 
             $AT[$i] = (2 * $data[$i]) - $data2[$i];
         }
 
@@ -107,7 +107,7 @@ class ForecastingController extends Controller
     public function BKoefisien($data, $data2, $ma) {
         $index = count($data2)-1;
         $BT = array_fill(0, $index + 1, NULL);
-        for ($i = $ma + 1; $i < $index; $i++) { 
+        for ($i = ($ma*2)-2; $i < $index; $i++) { 
             $BT[$i] = (2/($ma-1)) * ($data[$i]) - $data2[$i];
         }
 
@@ -118,7 +118,7 @@ class ForecastingController extends Controller
     public function Ft($data, $data2, $ma) {
         $index = count($data2);
         $FT = array_fill(0, $index + 1, NULL);
-        for ($i = $ma + 2; $i < $index; $i++) { 
+        for ($i = ($ma*2)-1; $i < $index; $i++) { 
             $FT[$i] = $data[$i-1] + $data2[$i-1];
         }
 

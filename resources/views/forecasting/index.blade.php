@@ -24,7 +24,7 @@
                         @csrf      
                         <div>
                             <x-input-label for="periode" :value="__('Periode')" />
-                            <x-text-input id="periode" name="periode" type="number" class="mt-1 block w-full" value="{{ request('periode') }}" required autofocus autocomplete="periode" min="1" max="{{ $index-1 }}" />
+                            <x-text-input id="periode" name="periode" type="number" class="mt-1 block w-full" value="{{ request('periode') }}" required autofocus autocomplete="periode" min="2" max="{{ $index/2 }}" />
                             <x-input-error class="mt-2" :messages="$errors->get('periode')" />
                         </div>
                         <div class="flex items-center gap-4">
